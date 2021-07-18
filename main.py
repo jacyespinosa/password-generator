@@ -1,4 +1,5 @@
 import random
+import pyperclip
 from tkinter import *
 from tkinter import simpledialog
 
@@ -26,6 +27,11 @@ def generate_password():
     password_symbols = [random.choice(symbols) for i in range(int(symbol_input))]
     password_numbers = [random.choice(numbers) for i in range(int(number_input))]
 
+    word = password_letters + password_symbols + password_numbers
+    random.shuffle(word)
+    password = (''.join(word))
+    password_entry.insert(END, password)
+    pyperclip.copy(password)
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
@@ -56,7 +62,7 @@ password_label.grid(column=1, row=4)
 password_entry = Entry(width=21, bg="white", fg="black", highlightthickness=0)
 password_entry.grid(column=2, row=4)
 
-generate_button = Button(text="Generate Password", command="")
+generate_button = Button(text="Generate Password", command=generate_password)
 generate_button.grid(column=3, row=4)
 
 add_button = Button(text="Add", width=36, command="")
