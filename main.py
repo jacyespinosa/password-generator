@@ -1,3 +1,4 @@
+import random
 from tkinter import *
 from tkinter import simpledialog
 
@@ -21,6 +22,9 @@ def generate_password():
     symbol_input = simpledialog.askstring(title="Symbols Length", prompt=f"{length_symbols}\n")
     number_input = simpledialog.askstring(title="Numbers Length", prompt=f"{length_numbers}\n")
 
+    password_letters = [random.choice(letters) for i in range(int(letter_input))]
+    password_symbols = [random.choice(symbols) for i in range(int(symbol_input))]
+    password_numbers = [random.choice(numbers) for i in range(int(number_input))]
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
