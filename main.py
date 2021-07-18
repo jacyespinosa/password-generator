@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import simpledialog
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -12,7 +13,13 @@ word = ''
 
 
 def generate_password():
-    pass
+    length_letters = ("How many letters would you like in your password?\n")
+    length_symbols = ("How many symbols would you like?\n")
+    length_numbers = ("How many numbers would you like?\n")
+
+    letter_input = simpledialog.askstring(title="Letters Length", prompt=f"{length_letters}\n")
+    symbol_input = simpledialog.askstring(title="Symbols Length", prompt=f"{length_symbols}\n")
+    number_input = simpledialog.askstring(title="Numbers Length", prompt=f"{length_numbers}\n")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
